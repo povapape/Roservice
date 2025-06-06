@@ -1153,3 +1153,312 @@ main {
 .footer-social-item img {
     transition: transform .3s ease 0s
 }
+/* Основні медіа-запити для 430px */
+@media (max-width: 430px) {
+    /* Контейнер */
+    [class*="__container"] {
+        max-width: 100%;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    
+    /* Header оптимізація */
+    .header__container {
+        min-height: 70px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        gap: 10px;
+    }
+    
+    .header__logo {
+        width: 120px;
+        height: 60px;
+    }
+    
+    /* Main block */
+    .main-block__body {
+        padding: 50px 0 100px 0;
+    }
+    
+    .main-block_title {
+        font-size: 26px;
+        line-height: 125%;
+        margin-bottom: 16px;
+    }
+    
+    .main-block_text {
+        font-size: 14px;
+        line-height: 140%;
+        padding: 0 8px;
+        margin-bottom: 24px;
+    }
+    
+    /* Services section - головна оптимізація */
+    .services {
+        padding: 16px 0 32px 0;
+        background: #fafafa;
+    }
+    
+    .services__container {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    
+    .services__body {
+        transform: translate(0, -6%);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin: 0;
+        align-items: stretch;
+    }
+    
+    .services__column {
+        flex: 1 1 100%;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .services__item {
+        padding: 18px 16px;
+        margin: 0;
+        border-radius: 10px;
+        box-shadow: 0 6px 20px 0 rgba(0,0,0,.08);
+        background: #fff;
+        height: auto;
+        min-height: 160px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .item-service {
+        border-radius: 10px;
+        text-align: center;
+    }
+    
+    .item-service > :not(:last-child) {
+        margin: 0 0 12px 0;
+    }
+    
+    .item-service__icon {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 16px;
+    }
+    
+    .item-service__icon img {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .item-service__title {
+        font-size: 17px;
+        line-height: 125%;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 12px;
+        color: var(--text-color);
+    }
+    
+    .item-service__text {
+        font-size: 12px;
+        line-height: 150%;
+        text-align: left;
+        letter-spacing: 0.01em;
+        color: var(--second-text-color);
+        flex-grow: 1;
+    }
+    
+    /* Спеціальні стилі для зеленої картки */
+    .item-service__green {
+        background: var(--secondary-color-1);
+    }
+    
+    .item-service__green .item-service__title {
+        color: var(--light-text-color);
+    }
+    
+    .item-service__green .item-service__text {
+        color: var(--light-text-color);
+    }
+    
+    /* Clients section */
+    .clients {
+        padding: 32px 0;
+    }
+    
+    .clients__title {
+        font-size: 20px;
+        margin-bottom: 24px;
+    }
+    
+    .clients__item {
+        padding: 6px 10px;
+        min-width: 120px;
+    }
+    
+    /* Form section */
+    .sec-form {
+        margin-top: 24px;
+        padding: 16px 0;
+    }
+    
+    .form-container {
+        padding: 24px 16px;
+        margin: 8px;
+        border-radius: 16px;
+        bottom: 20px;
+    }
+    
+    h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 16px;
+    }
+    
+    .form-group {
+        margin-bottom: 16px;
+    }
+    
+    input, select, textarea {
+        padding: 12px 14px;
+        font-size: 15px;
+        border-radius: 8px;
+    }
+    
+    textarea {
+        min-height: 100px;
+    }
+    
+    .btn {
+        padding: 14px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 40px 0 24px 0;
+    }
+    
+    .footer__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        text-align: center;
+    }
+    
+    .footer__logo {
+        width: 160px;
+        height: 64px;
+    }
+    
+    .footer-address {
+        margin-top: 16px;
+    }
+    
+    .footer-list .item {
+        margin-top: 8px;
+    }
+    
+    .footer-contacts, .footer-addres {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+    
+    .footer-title {
+        font-size: 13px;
+        text-align: center;
+    }
+    
+    .footer-socials {
+        margin-top: 16px;
+        gap: 16px;
+    }
+    
+    .footer-social-item:not(:last-child) {
+        margin-right: 16px;
+    }
+    
+    /* Header block загальний */
+    .header-block__title {
+        font-size: 22px;
+        line-height: 135%;
+    }
+    
+    .header-block_sub-title {
+        font-size: 13px;
+        line-height: 145%;
+    }
+}
+
+/* Додаткова оптимізація для дуже маленьких екранів (менше 380px) */
+@media (max-width: 380px) {
+    .services__container {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+    
+    .services__body {
+        gap: 12px;
+    }
+    
+    .services__item {
+        padding: 14px 12px;
+        min-height: 140px;
+    }
+    
+    .item-service__title {
+        font-size: 16px;
+    }
+    
+    .item-service__text {
+        font-size: 11px;
+        line-height: 155%;
+    }
+    
+    .form-container {
+        padding: 20px 12px;
+        margin: 6px;
+    }
+    
+    .main-block_title {
+        font-size: 24px;
+    }
+}
+
+/* Покращення взаємодії з дотиком */
+@media (max-width: 430px) {
+    .menu__link, .footer-social-link, .btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .footer-social-item img {
+        width: 32px;
+        height: 32px;
+    }
+    
+    /* Покращення читабельності */
+    body {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    
+    /* Оптимізація кнопок */
+    .header__button, .main-block_button {
+        min-height: 48px;
+        font-size: 15px;
+        padding: 12px 20px;
+    }
+}
