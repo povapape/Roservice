@@ -1161,9 +1161,6 @@ main {
         padding-left: 12px;
         padding-right: 12px;
     }
-    .logo {
-        background-image: url('Frame 5.svg');
-    }
     /* Header оптимізація */
     .header__container {
         min-height: 70px;
@@ -1173,7 +1170,7 @@ main {
     }
     
     .header__logo {
-        width: 120px;
+        width: 150px;
         height: 60px;
     }
     
