@@ -1316,7 +1316,12 @@ main {
 }
 
 .clients__item img {
-    max-width: 100%
+    max-width: 100%;
+    transition: 0.2s ease-in;
+}
+
+.clients__item img:hover {
+    transform: scale(1.4);
 }
 
 .clients-image__slider .swiper-button-next::after,.clients-image__slider .swiper-button-prev::after {
@@ -1585,5 +1590,5 @@ main {
 }
 
 .footer-social-item img {
-    transition: transform .3s ease 0s
+    transition: transform .3s ease 0s;
 }
