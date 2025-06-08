@@ -572,8 +572,16 @@ main {
 }
 
 .main-block_button-orange {
-    background: var(--primary-color);
-    color: var(--light-text-color)
+    border: 2px solid var(--secondary-color-1);
+    color: var(--secondary-color-1);
+    transition: 0.2s ease-in;
+}
+.main-block_button-orange:hover {
+    border: 2px solid var(--secondary-color-1);
+    background: var(--secondary-color-1);
+    color: var(--light-text-color);
+    transform: translateY(-4px);
+
 }
 
 .main-block_button-border {
