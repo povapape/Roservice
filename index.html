@@ -81,10 +81,10 @@
                 <div class="menu-container js-menu-container" id="mobile-menu">
                     <ul class="mobile-menu">
                         <li>
-                            <a href="header" class="link">Головна</a>
+                            <a href="#header" class="link">Головна</a>
                         </li>
                         <li>
-                            <a href="https://tarlux.com.ua/cases" class="link">ціни</a>
+                            <a href="#form" class="link">Зв'язатися з нами</a>
                         </li>
                     </ul>
                     <div class="mobile__contacts contacts-mobile">
@@ -175,6 +175,30 @@
                         </div>
                     </div>
                 </section>
+    <div class="carousel-container">
+        <h2 class="carousel-title"></h2>
+        
+        <div class="carousel">
+            <div class="carousel-wrapper" id="carouselWrapper">
+                <div class="carousel-slide">
+                    <img src="IMG_20200520_210253.jpg" alt="Гірський пейзаж">
+                    <div class="slide-overlay">
+                        <div class="slide-title">БУЛО</div>
+                        <div class="slide-description">Брудна та мало продуктивна мембрана</div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide">
+                    <img src="IMG_20200730_114914.jpg" alt="Лісова стежка">
+                    <div class="slide-overlay">
+                        <div class="slide-title">СТАЛО</div>
+                        <div class="slide-description">Чиста та продуктивна мембрана</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
                 <!-- CLIENTS  -->
                 <section class="page__clients clients">
                     <div class="clients__container">
@@ -377,6 +401,142 @@
                 button.textContent = 'Відправити заявку';
                 button.disabled = false;
             });
+        });
+    </script>
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 2;
+        const wrapper = document.getElementById('carouselWrapper');
+        const carousel = document.querySelector('.carousel');
+        let isDragging = false;
+        let startX = 0;
+        let currentX = 0;
+        let initialTranslateX = 0;
+
+        function updateCarousel() {
+            wrapper.style.transform = `translateX(-${currentSlide * 50}%)`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        // Функції для перетягування мишкою
+        function handleMouseDown(e) {
+            isDragging = true;
+            startX = e.clientX;
+            initialTranslateX = -currentSlide * 50;
+            carousel.style.cursor = 'grabbing';
+            wrapper.style.transition = 'none';
+            e.preventDefault();
+        }
+
+        function handleMouseMove(e) {
+            if (!isDragging) return;
+            
+            currentX = e.clientX;
+            const deltaX = currentX - startX;
+            const translateX = initialTranslateX + (deltaX / carousel.offsetWidth) * 50;
+            
+            wrapper.style.transform = `translateX(${translateX}%)`;
+        }
+
+        function handleMouseUp(e) {
+            if (!isDragging) return;
+            
+            isDragging = false;
+            carousel.style.cursor = 'grab';
+            wrapper.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            
+            const deltaX = currentX - startX;
+            const threshold = carousel.offsetWidth * 0.2;
+            
+            if (Math.abs(deltaX) > threshold) {
+                if (deltaX < 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            } else {
+                updateCarousel();
+            }
+        }
+
+        // Підключаємо події миші
+        carousel.addEventListener('mousedown', handleMouseDown);
+        document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('mouseup', handleMouseUp);
+
+        // Запобігаємо перетягуванню зображень
+        carousel.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        });
+
+        // Автоматична зміна слайдів кожні 5 секунд
+        let autoSlideInterval = setInterval(nextSlide, 5000);
+
+        // Зупиняємо автозміну при наведенні миші
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            autoSlideInterval = setInterval(nextSlide, 5000);
+        });
+
+        // Підтримка свайпів на мобільних пристроях
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+        let touchStartTime = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            touchStartTime = Date.now();
+        });
+
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].clientX;
+            touchEndY = e.changedTouches[0].clientY;
+            const touchDuration = Date.now() - touchStartTime;
+            
+            // Перевіряємо чи це був свайп (довгий рух) а не тап (короткий натиск)
+            if (touchDuration > 200) {
+                handleTouchSwipe();
+            }
+        });
+
+        function handleTouchSwipe() {
+            const swipeThreshold = 80;
+            const verticalThreshold = 50;
+            const diffX = touchStartX - touchEndX;
+            const diffY = Math.abs(touchStartY - touchEndY);
+
+            // Перевіряємо що це горизонтальний свайп, а не вертикальний скрол
+            if (Math.abs(diffX) > swipeThreshold && diffY < verticalThreshold) {
+                if (diffX > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        }
+
+        // Підтримка клавіатури
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
         });
     </script>
     </body>
