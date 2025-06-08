@@ -572,13 +572,14 @@ main {
 }
 
 .main-block_button-orange {
-    border: 2px solid var(--secondary-color-1);
-    color: var(--secondary-color-1);
+    border: 2px solid #0095ff;
+    color: #0095ff;
     transition: 0.2s ease-in;
+    backdrop-filter: blur(10px);
 }
 .main-block_button-orange:hover {
-    border: 2px solid var(--secondary-color-1);
-    background: var(--secondary-color-1);
+    border: 2px solid #0095ff;
+    background: #0095ff;
     color: var(--light-text-color);
     transform: translateY(-4px);
 
