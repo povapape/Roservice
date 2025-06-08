@@ -655,8 +655,11 @@ main {
     box-shadow: 0 13px 19px 0 rgba(0,0,0,.07);
     background: var(--light-text-color);
     padding: 35px;
+    transition: 0.1s ease-in;
 }
-
+.services__item:hover {
+    transform: translateY(-5px);
+}
 @media (max-width: 479.98px) {
     .services__item {
         padding:25px
